@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
-
+//(INSER)
 public class UserDao2 {
     public void add() throws SQLException ,ClassNotFoundException {
         Map<String, String> env = System.getenv();
@@ -14,7 +14,7 @@ public class UserDao2 {
         String dbPassword = env.get("DB_PASSWORD");
 
         Class.forName("com.mysql.cj.jdbc.Driver");
-        Connection conn = DriverManager.getConnection(dbHost,dbUser,dbPassword);
+        Connection conn = DriverManager.getConnection(dbHost,dbUser,dbPassword); // db연결
         PreparedStatement ps = conn.prepareStatement("INSERT INTO users(id, name, password) VALUES(?, ?, ?)");
         ps.setString(1, "2");
         ps.setString(2, "pizza");
